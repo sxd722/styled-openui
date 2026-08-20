@@ -28,7 +28,6 @@ import { Sidenote } from "./Sidenote";
 import { Spread } from "./Spread";
 import { Standfirst } from "./Standfirst";
 
-export * from "./unions";
 export * from "./ArticleCard";
 export * from "./BleedImage";
 export * from "./Byline";

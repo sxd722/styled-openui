@@ -1,4 +1,4 @@
-import type { PromptOptions } from "@openuidev/react-lang";
+import type { PromptOptions, ToolDescriptor } from "@openuidev/react-lang";
 
 // Server-safe prompt data for the magazine editorial component library.
 
@@ -13,7 +13,7 @@ export const magazineAdditionalRules: string[] = [
   'Use exactly one display-level Headline per page (the lead story). Section leads use level "title", in-article subheads use "subtitle".',
   "Every Figure needs a caption; add credit when the source is known. Use wrap left/right for mid-article images; reserve BleedImage for the single visual anchor of a page.",
   "Keep line length readable (45–75 characters per line): increase the Spread column count rather than widening a single column.",
-  "For images always use real accessible URLs like https://picsum.photos/seed/KEYWORD/1200/800. Never invent or hallucinate URLs.",
+  "Images: use URLs that come from the provided data or tool/query results. If no image URL is present, omit the image instead of inventing one. In synthetic examples you may use https://picsum.photos/seed/KEYWORD/1200/800 placeholders — never fabricate any other URLs.",
   "Build the issue front page as: Masthead → MagazineCover → Contents → ArticleCard grid, inside a 2-column Spread.",
   "MagazineWidget-family components render phone home-screen widgets (2x4 launcher cells): CoverWidget, QuoteWidget, ContentsWidget, DateWidget. Pick one per surface, keep text under ~60 characters, and give ContentsWidget at most 3 short headlines.",
   "ReadingProgress is rendered once per article page, as the first child of Spread.",
@@ -80,3 +80,54 @@ export const magazinePromptOptions: PromptOptions = {
   additionalRules: magazineAdditionalRules,
   examples: magazineExamples,
 };
+
+// ── Interactive capability layer (for the composed fullMagazineLibrary) ──
+
+export const magazineToolExamples: string[] = [
+  `Example — Interactive issue index (needs the composed library: @openui-style/magazine/full):
+
+articles = Query("list_articles", { section: $section }, { rows: [] })
+$section = "Design"
+
+root = Spread([headline, filter, index, actions], 2)
+headline = Headline("The Archive", "title", "Index")
+filter = FormControl("Section", Select("section", sections, $section))
+sections = [SelectItem("design", "Design"), SelectItem("essay", "Essay"), SelectItem("typography", "Typography")]
+index = Table([Col("Title", titles), Col("Author", authors)])
+titles = @Each(articles.rows, r, r.title)
+authors = @Each(articles.rows, r, r.author)
+actions = Buttons([Button("Refresh", Action([@Run(articles)]), "secondary")])`,
+];
+
+/**
+ * Prompt factory: the static `magazinePromptOptions` covers the editorial
+ * layout stance; this factory additionally unlocks OpenUI's interactive
+ * capabilities for the composed library.
+ *
+ * - pass `tools` (tool descriptors) to advertise Query()/Mutation() targets
+ * - pass `toolExamples` (or rely on the built-in `magazineToolExamples`)
+ * - `interactive` (default: true when tools are provided) enables
+ *   `toolCalls` and `bindings` — Query, $variables, @Set/@Reset/@Run
+ * - `editMode` / `inlineMode` map straight through to PromptOptions
+ */
+export function createMagazinePromptOptions(options?: {
+  tools?: ToolDescriptor[];
+  toolExamples?: string[];
+  additionalRules?: string[];
+  interactive?: boolean;
+  editMode?: boolean;
+  inlineMode?: boolean;
+}): PromptOptions {
+  const interactive = options?.interactive ?? Boolean(options?.tools?.length);
+  return {
+    preamble: magazinePreamble,
+    additionalRules: [...magazineAdditionalRules, ...(options?.additionalRules ?? [])],
+    examples: magazineExamples,
+    tools: options?.tools,
+    toolExamples: options?.toolExamples ?? (options?.tools?.length ? magazineToolExamples : undefined),
+    toolCalls: interactive || undefined,
+    bindings: interactive || undefined,
+    editMode: options?.editMode || undefined,
+    inlineMode: options?.inlineMode || undefined,
+  };
+}

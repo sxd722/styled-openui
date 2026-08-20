@@ -51,4 +51,20 @@ export default defineConfig([
     outDir: "dist/genui-lib",
     entry: { index: "src/genui-lib/index.ts" },
   },
+  // full — composed library over @openuidev/react-ui (optional peer) — CJS
+  {
+    ...shared,
+    format: ["cjs"],
+    dts: true,
+    outDir: "dist/full",
+    entry: { index: "src/full/index.ts" },
+  },
+  // full — ESM
+  {
+    ...shared,
+    format: ["esm"],
+    dts: true,
+    outDir: "dist/full",
+    entry: { index: "src/full/index.ts" },
+  },
 ]);

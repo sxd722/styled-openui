@@ -35,7 +35,7 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "@openuidev/react-lang": ">=0.2.5",
+    "@openuidev/react-lang": "^0.2.11",
     "react": "^18.3.1 || ^19.0.0",
     "zod": "^3.25.0 || ^4.0.0"
   },

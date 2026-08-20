@@ -37,6 +37,34 @@ const systemPrompt = magazineLibrary.prompt(magazinePromptOptions);
 <Renderer response={openuiLangString} library={magazineLibrary} />
 ```
 
+### Full library (magazine + official OpenUI components)
+
+The base library is editorial-display only. To keep OpenUI's interactive
+surface (Stack, Card, Form, Input, Select, Button, Table, Charts, Tabs,
+Modal, Query/Mutation, actions) alongside the magazine components, install
+`@openuidev/react-ui` and use the composed entry:
+
+```tsx
+import { fullMagazineLibrary } from "@openui-style/magazine/full";
+import { createMagazinePromptOptions } from "@openui-style/magazine";
+
+// tools describe your Query()/Mutation() backend (strings or ToolSpecs)
+const prompt = fullMagazineLibrary.prompt(
+  createMagazinePromptOptions({ tools: ["list_articles"] }),
+);
+
+<Renderer response={openuiLangString} library={fullMagazineLibrary} toolProvider={myTools} />
+```
+
+Also import the official styles: `@openuidev/react-ui/defaults.css` and
+`@openuidev/react-ui/index.css`.
+
+### Prompt factory
+
+`createMagazinePromptOptions({ tools, toolExamples, interactive, editMode, inlineMode })`
+unlocks OpenUI's interactive capabilities in the prompt (`toolCalls`,
+`bindings`, built-in interactive examples). The static
+`magazinePromptOptions` remains for purely editorial layouts.
 ### With AgentInterface
 
 ```tsx

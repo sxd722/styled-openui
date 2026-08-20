@@ -47,3 +47,22 @@ headline = Headline("A Short Piece", "title", "Essay")
 byline = Byline("Ada Lovelace", "Editor", "19 August 2026")
 opener = DropCap("Paste any OpenUI Lang source here and it renders live with the magazine library.")
 body = Prose("Edit the text on the left — the page on the right re-renders as you type.")`;
+
+// ── Composed-library (magazine-full) docs: interactive OpenUI capabilities ──
+
+export const magazineFullInteractiveDoc = `
+stats = Query("issue_stats", {}, { label: "" })
+root = Spread([headline, standfirst, byline, statline, divider, actions], 1)
+headline = Headline("The Archive, Live", "display", "Interactive")
+standfirst = Standfirst("This page is assembled from a tool query. Edit the source in the playground — or press Refresh — and the runtime re-fetches and re-renders.")
+byline = Byline("OpenUI Runtime", "Demo", "19 August 2026")
+statline = TextContent(stats.label)
+divider = Divider("rule")
+actions = Buttons([Button("Refresh", Action([@Run(stats)]), "secondary"), Button("Subscribe", Action([@ToAssistant("subscribe to the weekly dispatch")]), "primary")])
+`;
+
+export const magazineFullPlaygroundSample = `stats = Query("issue_stats", {}, { label: "" })
+root = Spread([headline, statline, actions], 1)
+headline = Headline("Interactive Spread", "title", "Query + Action")
+statline = TextContent(stats.label)
+actions = Buttons([Button("Refresh", Action([@Run(stats)]), "secondary"), Button("Say hello", Action([@ToAssistant("hello from the playground")]), "primary")])`;

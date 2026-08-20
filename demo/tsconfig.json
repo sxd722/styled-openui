@@ -2,6 +2,7 @@
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "paths": {
+      "@openui-style/magazine/full": ["../packages/magazine/src/full/index.ts"],
       "@openui-style/*": ["../packages/*/src"]
     }
   },

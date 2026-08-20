@@ -50,7 +50,7 @@ export const ReadingProgress = defineComponent({
   name: "ReadingProgress",
   props: ReadingProgressSchema,
   description:
-    'Fixed reading-progress bar pinned to the top of the viewport. height in px (default 2). variant: "ink" (default) | "accent". Render once per article page, as the first child of Spread.',
+    'Reading-progress bar. Binds to the VIEWPORT scroll position (window scroll) — for full-page article surfaces, not nested scroll containers such as chat panels, modals or embedded widgets. height in px (default 2). variant: "ink" (default) | "accent". Render once per article page, as the first child of Spread.',
   component: ({ props }) => (
     <MagazineReadingProgressView height={props.height} variant={props.variant} />
   ),

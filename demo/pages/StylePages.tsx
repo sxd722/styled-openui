@@ -10,7 +10,13 @@ export function StylePageView({
   registration: StyleRegistration;
   page: StylePage;
 }) {
-  const content = <Renderer response={page.doc ?? ""} library={registration.library} />;
+  const content = (
+    <Renderer
+      response={page.doc ?? ""}
+      library={registration.library}
+      toolProvider={registration.toolProvider ?? null}
+    />
+  );
   if (page.layout === "phone") {
     return (
       <div className="demo-phone">

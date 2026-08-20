@@ -6,7 +6,12 @@ import { copyFileSync, existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
 const pkgRoot = process.cwd();
-const targets = ["dist", "dist/genui-lib", "dist/genui-lib/prompt-options"];
+const targets = [
+  "dist",
+  "dist/genui-lib",
+  "dist/genui-lib/prompt-options",
+  "dist/full",
+];
 
 for (const dir of targets) {
   const abs = join(pkgRoot, dir);
