@@ -1,0 +1,43 @@
+@use "../../styles/tokens" as t;
+
+.openui-mag-prose {
+  font-family: t.$font-body;
+  font-size: var(--openui-magazine-size-body);
+  line-height: var(--openui-magazine-leading-body);
+  letter-spacing: var(--openui-magazine-tracking-body);
+  color: t.$ink-secondary;
+  margin: 0 0 t.$gutter;
+  line-break: strict;
+  overflow-wrap: break-word;
+
+  p {
+    margin: 0;
+  }
+
+  p + p {
+    margin-top: 0.9em;
+  }
+
+  a {
+    color: t.$ink;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  strong {
+    font-weight: 700;
+    color: t.$ink;
+  }
+
+  // Classic book setting: paragraph opens with an indent, no extra gap.
+  &-indent p + p {
+    text-indent: 1.8em;
+    margin-top: 0;
+  }
+
+  &-hyphenate {
+    hyphens: auto;
+    text-align: justify;
+  }
+}

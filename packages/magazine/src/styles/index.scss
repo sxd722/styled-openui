@@ -1,0 +1,36 @@
+// Aggregated component styles for @openui-style/magazine.
+// Tokens live in src/magazine-defaults.css (kept unlayered).
+
+@use "flow";
+
+// Typography
+@use "../genui-lib/Headline/headline.scss";
+@use "../genui-lib/Standfirst/standfirst.scss";
+@use "../genui-lib/Byline/byline.scss";
+@use "../genui-lib/DropCap/dropcap.scss";
+@use "../genui-lib/Prose/prose.scss";
+@use "../genui-lib/PullQuote/pullquote.scss";
+@use "../genui-lib/Crosshead/crosshead.scss";
+@use "../genui-lib/Divider/divider.scss";
+
+// Page layout
+@use "../genui-lib/Spread/spread.scss";
+@use "../genui-lib/Figure/figure.scss";
+@use "../genui-lib/BleedImage/bleed-image.scss";
+
+// Publication
+@use "../genui-lib/Masthead/masthead.scss";
+@use "../genui-lib/MagazineCover/cover.scss";
+@use "../genui-lib/Contents/contents.scss";
+@use "../genui-lib/ArticleCard/article-card.scss";
+@use "../genui-lib/Folio/folio.scss";
+
+// Notes
+@use "../genui-lib/Footnote/footnote.scss";
+@use "../genui-lib/Sidenote/sidenote.scss";
+
+// Reading UX
+@use "../genui-lib/ReadingProgress/reading-progress.scss";
+
+// Widget
+@use "../genui-lib/MagazineWidget/widget.scss";

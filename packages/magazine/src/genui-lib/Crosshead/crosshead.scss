@@ -1,0 +1,39 @@
+@use "../../styles/tokens" as t;
+
+.openui-mag-crosshead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: calc(t.$gutter * 1.5) 0;
+
+  &__text {
+    @include t.label;
+    color: t.$ink;
+    white-space: nowrap;
+  }
+
+  // Small caps flanked by hairlines running to the column edges.
+  &-rule::before,
+  &-rule::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: t.$rule;
+  }
+
+  &-centered {
+    justify-content: center;
+  }
+
+  &-numbered {
+    justify-content: flex-start;
+
+    .openui-mag-crosshead__number {
+      font-family: t.$font-display;
+      font-size: var(--openui-magazine-size-subtitle);
+      font-weight: 600;
+      color: t.$accent-ink;
+      line-height: 1;
+    }
+  }
+}

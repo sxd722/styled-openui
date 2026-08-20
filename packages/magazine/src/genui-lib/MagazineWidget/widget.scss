@@ -1,0 +1,200 @@
+@use "../../styles/tokens" as t;
+
+// 2x4 launcher cell ≈ 150x316dp. Everything inside scales with container
+// query units so hosts can resize via --openui-magazine-widget-w/h.
+.openui-mag-widget {
+  width: var(--openui-magazine-widget-w);
+  height: var(--openui-magazine-widget-h);
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  background: t.$paper;
+  color: t.$ink;
+  border: 1px solid t.$rule;
+  padding: 6cqw;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: t.$font-body;
+
+  &__masthead {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 2cqw;
+    border-bottom: 1px solid t.$rule-strong;
+    padding-bottom: 3cqw;
+    margin-bottom: 4cqw;
+  }
+
+  &__title {
+    font-family: t.$font-display;
+    font-size: 8.5cqw;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__issue {
+    font-family: t.$font-caption;
+    font-size: 5cqw;
+    letter-spacing: var(--openui-magazine-tracking-caps);
+    text-transform: uppercase;
+    color: t.$accent-ink;
+    white-space: nowrap;
+  }
+
+  // ── cover ──
+  &__cover {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: t.$ink;
+
+    img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__headline {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 12cqw 5cqw 4cqw;
+    background: linear-gradient(to top, rgba(15, 14, 12, 0.8), rgba(15, 14, 12, 0));
+    color: t.$white;
+    font-family: t.$font-display;
+    font-size: 7cqw;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  // ── quote ──
+  &__quote {
+    flex: 1;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &::before {
+      content: "“";
+      font-family: t.$font-display;
+      font-size: 24cqw;
+      line-height: 0.55;
+      color: t.$accent;
+      display: block;
+      margin-bottom: 4cqw;
+    }
+  }
+
+  &__quote-text {
+    font-family: t.$font-display;
+    font-style: italic;
+    font-size: 8cqw;
+    line-height: 1.4;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__quote-attribution {
+    font-family: t.$font-caption;
+    font-size: 5cqw;
+    letter-spacing: var(--openui-magazine-tracking-caps);
+    text-transform: uppercase;
+    color: t.$ink-tertiary;
+    margin-top: 5cqw;
+  }
+
+  // ── contents ──
+  &__contents {
+    flex: 1;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  &__contents-item {
+    display: flex;
+    gap: 3cqw;
+    align-items: baseline;
+  }
+
+  &__contents-number {
+    font-family: t.$font-display;
+    font-size: 8cqw;
+    font-weight: 600;
+    color: t.$accent-ink;
+    line-height: 1;
+  }
+
+  &__contents-title {
+    font-family: t.$font-display;
+    font-size: 7.2cqw;
+    line-height: 1.25;
+    font-weight: 500;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  // ── date ──
+  &__date {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__date-day {
+    font-family: t.$font-display;
+    font-size: 52cqw;
+    font-weight: 500;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+  }
+
+  &__date-label {
+    margin-top: 4cqw;
+    font-family: t.$font-caption;
+    font-size: 5.5cqw;
+    letter-spacing: var(--openui-magazine-tracking-caps);
+    text-transform: uppercase;
+    color: t.$ink-tertiary;
+  }
+
+  // ── shared folio footer ──
+  &__folio {
+    display: flex;
+    align-items: center;
+    gap: 3cqw;
+    margin-top: 4cqw;
+  }
+
+  &__folio-rule {
+    flex: 1;
+    height: 1px;
+    background: t.$rule;
+  }
+
+  &__folio-mark {
+    font-size: 6cqw;
+    color: t.$accent-ink;
+    line-height: 1;
+  }
+}

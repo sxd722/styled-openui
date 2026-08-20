@@ -1,0 +1,21 @@
+@use "../../styles/tokens" as t;
+
+.openui-mag-reading-progress {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 100;
+  background: t.$rule;
+  pointer-events: none;
+
+  &__fill {
+    height: 100%;
+    background: t.$ink;
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+
+  &-accent .openui-mag-reading-progress__fill {
+    background: t.$accent;
+  }
+}

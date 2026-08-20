@@ -1,0 +1,61 @@
+@use "../../styles/tokens" as t;
+
+.openui-mag-cover {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  margin: 0 0 t.$gutter;
+  overflow: hidden;
+  background: t.$ink;
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &-mono img {
+    filter: grayscale(1) contrast(1.1);
+  }
+
+  &__masthead {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(to bottom, rgba(15, 14, 12, 0.55), rgba(15, 14, 12, 0));
+  }
+
+  &__issue {
+    @include t.label;
+    color: t.$white;
+  }
+
+  &__title {
+    font-family: t.$font-display;
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 700;
+    line-height: 1.05;
+    color: t.$white;
+    margin: 0;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+  }
+
+  &__headline {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    padding: 64px 28px 26px;
+    background: linear-gradient(to top, rgba(15, 14, 12, 0.8), rgba(15, 14, 12, 0));
+    color: t.$white;
+    font-family: t.$font-display;
+    font-size: var(--openui-magazine-size-subtitle);
+    font-weight: 500;
+    line-height: 1.35;
+  }
+}

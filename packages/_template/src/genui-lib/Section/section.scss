@@ -1,0 +1,12 @@
+@use "../../styles/tokens" as t;
+
+.openui-TEMPLATE-section {
+  margin: 0 0 t.$gutter;
+
+  &__title {
+    font-family: t.$font-display;
+    font-size: t.$size-title;
+    color: t.$ink;
+    margin: 0 0 t.$gutter;
+  }
+}

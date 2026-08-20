@@ -1,0 +1,73 @@
+/**
+ * @openui-style/magazine — design tokens.
+ *
+ * Kept unlayered in BOTH css variants so runtime overrides always win
+ * (mirrors the upstream OpenUI theming strategy).
+ * Override any variable on :root, a wrapper element, or a theme class.
+ */
+
+:root {
+  /* ── Palette: black / white / gray + one editorial accent ── */
+
+  --openui-magazine-paper: #fdfcf8;          /* warm paper white */
+  --openui-magazine-white: #ffffff;
+  --openui-magazine-ink: #141414;            /* near-black text */
+  --openui-magazine-ink-secondary: #3d3a36;  /* soft gray body */
+  --openui-magazine-ink-tertiary: #6e6a64;   /* captions, metadata */
+  --openui-magazine-rule: rgba(20, 20, 20, 0.24);        /* hairline */
+  --openui-magazine-rule-strong: rgba(20, 20, 20, 0.85);
+  --openui-magazine-rule-inverted: rgba(253, 252, 248, 0.45);
+  --openui-magazine-accent: #b3352c;         /* single accent — editorial red */
+  --openui-magazine-accent-ink: #8c2822;     /* accent tuned for text on paper */
+
+  /* ── Typography ── */
+
+  --openui-magazine-font-display: "Playfair Display", "Cormorant Garamond", "EB Garamond",
+    Georgia, "Times New Roman", serif;
+  --openui-magazine-font-body: "Lora", "Source Serif 4", Georgia, "Times New Roman", serif;
+  --openui-magazine-font-caption: "Inter", "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+
+  /* Type scale — a strict editorial hierarchy: 56 / 32 / 24 / 18 / 16 / 14 / 12 */
+  --openui-magazine-size-display: 56px;
+  --openui-magazine-size-title: 32px;
+  --openui-magazine-size-subtitle: 24px;
+  --openui-magazine-size-standfirst: 18px;
+  --openui-magazine-size-body: 16px;
+  --openui-magazine-size-small: 14px;
+  --openui-magazine-size-caption: 12px;
+
+  /* Leading — body sits on a 4px baseline grid */
+  --openui-magazine-leading-display: 1.04;
+  --openui-magazine-leading-title: 1.15;
+  --openui-magazine-leading-subtitle: 1.28;
+  --openui-magazine-leading-body: 1.7;
+  --openui-magazine-leading-caption: 1.5;
+
+  /* Tracking */
+  --openui-magazine-tracking-display: -0.015em;
+  --openui-magazine-tracking-title: -0.01em;
+  --openui-magazine-tracking-caps: 0.18em;   /* small-caps labels, kickers, folios */
+  --openui-magazine-tracking-body: 0.005em;
+
+  /* ── Grid & page ── */
+
+  --openui-magazine-page-max: 1120px;
+  --openui-magazine-page-pad-x: clamp(20px, 6vw, 72px);
+  --openui-magazine-page-pad-y: 48px;
+  --openui-magazine-column-gap: 40px;
+  --openui-magazine-column-rule: 1px solid var(--openui-magazine-rule);
+  --openui-magazine-gutter: 24px;            /* vertical rhythm between blocks */
+
+  /* ── Feature sizing ── */
+
+  --openui-magazine-dropcap-2-size: 3.4em;
+  --openui-magazine-dropcap-3-size: 4.8em;
+  --openui-magazine-bleed-short: 260px;
+  --openui-magazine-bleed-medium: 380px;
+  --openui-magazine-bleed-tall: 520px;
+
+  /* ── 2x4 home-screen widget (≈ half-width × 4 rows on a phone launcher) ── */
+
+  --openui-magazine-widget-w: 150px;
+  --openui-magazine-widget-h: 316px;
+}

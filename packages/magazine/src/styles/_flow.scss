@@ -1,0 +1,42 @@
+// Flow participation inside a multi-column Spread.
+//
+// Blocks that act like print "furniture" break out of the column flow and
+// span the full page width (column-span: all). Everything else flows
+// through the columns like body copy.
+
+@use "tokens" as t;
+
+.openui-mag-spread {
+  .openui-mag-headline,
+  .openui-mag-masthead,
+  .openui-mag-magazine-cover,
+  .openui-mag-contents,
+  .openui-mag-bleed-image,
+  .openui-mag-pullquote-center,
+  .openui-mag-pullquote-marker,
+  .openui-mag-divider,
+  .openui-mag-folio,
+  .openui-mag-reading-progress {
+    column-span: all;
+  }
+
+  // Blocks keep their internal layout intact when a column breaks near them.
+  > * {
+    break-inside: avoid;
+  }
+
+  // Long prose is exactly what SHOULD break across columns.
+  .openui-mag-prose,
+  .openui-mag-dropcap {
+    break-inside: auto;
+  }
+
+  // A floated figure may pull into the next column edge; keep captions whole.
+  .openui-mag-figure {
+    break-inside: avoid;
+  }
+
+  .openui-mag-margin-reset {
+    margin-block-start: 0;
+  }
+}

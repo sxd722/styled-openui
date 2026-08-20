@@ -1,0 +1,14 @@
+@use "../../styles/tokens" as t;
+
+.openui-mag-sidenote {
+  float: right;
+  clear: right;
+  width: 42%;
+  margin: 4px 0 12px t.$gutter;
+  padding-left: 12px;
+  border-left: 2px solid t.$accent;
+  font-family: t.$font-caption;
+  font-size: var(--openui-magazine-size-small);
+  line-height: var(--openui-magazine-leading-caption);
+  color: t.$ink-tertiary;
+}

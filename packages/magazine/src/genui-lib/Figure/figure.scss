@@ -1,0 +1,67 @@
+@use "../../styles/tokens" as t;
+
+.openui-mag-figure {
+  margin: 0 0 t.$gutter;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &__caption {
+    @include t.label;
+    color: t.$ink-tertiary;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 14px;
+    row-gap: 2px;
+  }
+
+  &__caption-text {
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-size: var(--openui-magazine-size-caption);
+    color: t.$ink-secondary;
+  }
+
+  &__credit {
+    font-style: normal;
+    color: t.$ink-tertiary;
+  }
+
+  // Black & white treatment.
+  &-mono img {
+    filter: grayscale(1) contrast(1.05);
+  }
+
+  // Text wrap — the print magazine "runaround". Size applies to wrapped figures.
+  &-wrap-left {
+    float: left;
+    width: 55%;
+    margin: 4px t.$gutter 12px 0;
+  }
+
+  &-wrap-right {
+    float: right;
+    width: 55%;
+    margin: 4px 0 12px t.$gutter;
+  }
+
+  &-wrap-left.openui-mag-figure-small,
+  &-wrap-right.openui-mag-figure-small {
+    width: 40%;
+  }
+
+  &-wrap-left.openui-mag-figure-large,
+  &-wrap-right.openui-mag-figure-large {
+    width: 85%;
+  }
+}
+
+// Unwrapped figures fill their column; size has no effect in the flow.
+.openui-mag-figure-wrap-none {
+  width: 100%;
+}

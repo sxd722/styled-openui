@@ -1,0 +1,80 @@
+@use "../../styles/tokens" as t;
+
+.openui-mag-article-card {
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid t.$ink;
+  padding-top: 12px;
+  margin: 0 0 t.$gutter;
+
+  &__media {
+    margin-bottom: 12px;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+    }
+  }
+
+  &__category {
+    @include t.label;
+    color: t.$accent-ink;
+    margin: 0 0 8px;
+  }
+
+  &__headline {
+    font-family: t.$font-display;
+    font-size: var(--openui-magazine-size-title);
+    line-height: var(--openui-magazine-leading-title);
+    font-weight: 600;
+    color: t.$ink;
+    margin: 0 0 8px;
+  }
+
+  &__standfirst {
+    font-family: t.$font-body;
+    font-size: var(--openui-magazine-size-small);
+    line-height: 1.55;
+    color: t.$ink-secondary;
+    margin: 0 0 10px;
+  }
+
+  &__meta {
+    @include t.label;
+    color: t.$ink-tertiary;
+    margin: auto 0 0;
+    display: flex;
+    gap: 6px;
+  }
+
+  &-mono &__media img {
+    filter: grayscale(1) contrast(1.05);
+  }
+
+  &-side {
+    flex-direction: row;
+    gap: 16px;
+
+    .openui-mag-article-card__media {
+      flex: 2;
+      margin-bottom: 0;
+
+      img {
+        height: 100%;
+        aspect-ratio: auto;
+        min-height: 120px;
+      }
+    }
+
+    .openui-mag-article-card__body {
+      flex: 3;
+    }
+
+    .openui-mag-article-card__headline {
+      font-size: var(--openui-magazine-size-subtitle);
+    }
+  }
+}

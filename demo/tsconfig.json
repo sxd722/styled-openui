@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "paths": {
+      "@openui-style/*": ["../packages/*/src"]
+    }
+  },
+  "include": [".", "../packages/*/src"],
+  "exclude": ["dist", "../packages/_template"]
+}

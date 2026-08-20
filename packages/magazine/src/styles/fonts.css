@@ -1,0 +1,10 @@
+/**
+ * Optional Google Fonts for @openui-style/magazine.
+ *
+ * Import this file ONLY if you accept a network request to fonts.googleapis.com.
+ * Without it, components fall back to Georgia / system stacks and remain
+ * fully readable. Self-hosting is recommended for production:
+ * swap this import for your own @font-face rules.
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600&display=swap");

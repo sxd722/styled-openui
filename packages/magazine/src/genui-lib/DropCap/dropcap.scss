@@ -1,0 +1,47 @@
+@use "../../styles/tokens" as t;
+
+.openui-mag-dropcap {
+  font-family: t.$font-body;
+  font-size: var(--openui-magazine-size-body);
+  line-height: var(--openui-magazine-leading-body);
+  color: t.$ink-secondary;
+  margin: 0 0 1em;
+  line-break: strict;
+
+  &::first-letter {
+    font-family: t.$font-display;
+    font-weight: 600;
+    float: left;
+    font-size: var(--openui-magazine-dropcap-2-size);
+    line-height: 0.82;
+    padding: 0.05em 0.12em 0 0;
+    color: t.$ink;
+  }
+
+  &.openui-mag-dropcap-accent::first-letter {
+    color: t.$accent-ink;
+  }
+
+  &.openui-mag-dropcap-3lines::first-letter {
+    font-size: var(--openui-magazine-dropcap-3-size);
+  }
+
+  // Browsers with initial-letter get true baseline-aligned drop caps.
+  @supports (initial-letter: 2) {
+    &.openui-mag-dropcap-2lines::first-letter {
+      initial-letter: 2;
+      float: none;
+      font-size: inherit;
+      line-height: inherit;
+      padding: 0;
+    }
+
+    &.openui-mag-dropcap-3lines::first-letter {
+      initial-letter: 3;
+      float: none;
+      font-size: inherit;
+      line-height: inherit;
+      padding: 0;
+    }
+  }
+}

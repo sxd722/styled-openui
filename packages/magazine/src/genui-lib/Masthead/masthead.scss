@@ -1,0 +1,34 @@
+@use "../../styles/tokens" as t;
+
+.openui-mag-masthead {
+  text-align: center;
+  margin: 0 0 t.$gutter;
+  padding: 16px 0;
+  border-block: 3px double t.$rule-strong;
+
+  &__meta {
+    @include t.label;
+    color: t.$ink-tertiary;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  &__title {
+    font-family: t.$font-display;
+    font-size: clamp(40px, 7vw, 72px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    color: t.$ink;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  &__tagline {
+    @include t.label;
+    color: t.$accent-ink;
+    margin: 14px 0 0;
+  }
+}

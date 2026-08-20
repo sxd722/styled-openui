@@ -1,0 +1,63 @@
+@use "../../styles/tokens" as t;
+
+.openui-mag-contents {
+  margin: 0 0 t.$gutter;
+
+  &__heading {
+    @include t.label;
+    color: t.$accent-ink;
+    margin: 0 0 16px;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 10px 0;
+  }
+
+  &__number {
+    font-family: t.$font-display;
+    font-size: var(--openui-magazine-size-standfirst);
+    font-weight: 600;
+    color: t.$accent-ink;
+    min-width: 1.6em;
+    line-height: 1;
+  }
+
+  &__title {
+    font-family: t.$font-display;
+    font-size: var(--openui-magazine-size-standfirst);
+    line-height: 1.3;
+    color: t.$ink;
+  }
+
+  &__section {
+    font-family: t.$font-caption;
+    font-style: normal;
+    font-size: var(--openui-magazine-size-caption);
+    letter-spacing: var(--openui-magazine-tracking-caps);
+    text-transform: uppercase;
+    color: t.$ink-tertiary;
+    display: block;
+    margin-top: 2px;
+  }
+
+  &__leader {
+    flex: 1;
+    min-width: 2em;
+    border-bottom: 1px dotted t.$rule-strong;
+    transform: translateY(-4px);
+  }
+
+  &__page {
+    @include t.label;
+    color: t.$ink;
+  }
+}

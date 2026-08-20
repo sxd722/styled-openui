@@ -1,0 +1,46 @@
+@use "../../styles/tokens" as t;
+
+.openui-mag-headline {
+  margin: 0 0 t.$gutter;
+
+  &__kicker {
+    @include t.label;
+    color: t.$accent-ink;
+    margin: 0 0 12px;
+  }
+
+  &__text {
+    font-family: t.$font-display;
+    color: t.$ink;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  &-display .openui-mag-headline__text {
+    font-size: var(--openui-magazine-size-display);
+    line-height: var(--openui-magazine-leading-display);
+    letter-spacing: var(--openui-magazine-tracking-display);
+    font-weight: 600;
+  }
+
+  &-title .openui-mag-headline__text {
+    font-size: var(--openui-magazine-size-title);
+    line-height: var(--openui-magazine-leading-title);
+    letter-spacing: var(--openui-magazine-tracking-title);
+    font-weight: 600;
+  }
+
+  &-subtitle .openui-mag-headline__text {
+    font-size: var(--openui-magazine-size-subtitle);
+    line-height: var(--openui-magazine-leading-subtitle);
+    font-weight: 500;
+  }
+
+  &-center {
+    text-align: center;
+  }
+
+  &-right {
+    text-align: right;
+  }
+}

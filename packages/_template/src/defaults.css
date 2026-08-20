@@ -1,0 +1,29 @@
+/**
+ * @openui-style/TEMPLATE — design tokens.
+ * Rename every `--openui-TEMPLATE-*` to your style short name.
+ * Kept unlayered in BOTH css variants so runtime overrides always win.
+ */
+
+:root {
+  /* Palette */
+  --openui-TEMPLATE-background: #ffffff;
+  --openui-TEMPLATE-ink: #111111;
+  --openui-TEMPLATE-ink-secondary: #444444;
+  --openui-TEMPLATE-ink-tertiary: #777777;
+  --openui-TEMPLATE-rule: rgba(17, 17, 17, 0.25);
+  --openui-TEMPLATE-accent: #cc0000;
+
+  /* Fonts */
+  --openui-TEMPLATE-font-display: Georgia, "Times New Roman", serif;
+  --openui-TEMPLATE-font-body: system-ui, sans-serif;
+  --openui-TEMPLATE-font-caption: system-ui, sans-serif;
+
+  /* Type scale — define your hierarchy */
+  --openui-TEMPLATE-size-display: 48px;
+  --openui-TEMPLATE-size-title: 28px;
+  --openui-TEMPLATE-size-body: 16px;
+  --openui-TEMPLATE-size-caption: 12px;
+
+  /* Rhythm */
+  --openui-TEMPLATE-space-gutter: 24px;
+}

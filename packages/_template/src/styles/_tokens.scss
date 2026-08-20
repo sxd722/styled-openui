@@ -1,0 +1,20 @@
+// SCSS conveniences over the CSS custom properties in src/defaults.css.
+// Components consume the runtime variables — never hard-coded values.
+
+$background: var(--openui-TEMPLATE-background);
+$ink: var(--openui-TEMPLATE-ink);
+$ink-secondary: var(--openui-TEMPLATE-ink-secondary);
+$ink-tertiary: var(--openui-TEMPLATE-ink-tertiary);
+$rule: var(--openui-TEMPLATE-rule);
+$accent: var(--openui-TEMPLATE-accent);
+
+$font-display: var(--openui-TEMPLATE-font-display);
+$font-body: var(--openui-TEMPLATE-font-body);
+$font-caption: var(--openui-TEMPLATE-font-caption);
+
+$size-display: var(--openui-TEMPLATE-size-display);
+$size-title: var(--openui-TEMPLATE-size-title);
+$size-body: var(--openui-TEMPLATE-size-body);
+$size-caption: var(--openui-TEMPLATE-size-caption);
+
+$gutter: var(--openui-TEMPLATE-space-gutter);

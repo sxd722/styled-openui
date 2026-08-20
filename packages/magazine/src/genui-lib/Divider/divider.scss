@@ -1,0 +1,50 @@
+@use "../../styles/tokens" as t;
+
+.openui-mag-divider {
+  border: none;
+  margin: calc(t.$gutter * 1.25) 0;
+
+  &-hair {
+    height: 1px;
+    background: t.$rule;
+  }
+
+  &-double {
+    height: 3px;
+    border-top: 1px solid t.$rule-strong;
+    border-bottom: 1px solid t.$rule-strong;
+  }
+
+  &-dotted {
+    height: 1px;
+    background: repeating-linear-gradient(
+      to right,
+      t.$rule-strong 0 2px,
+      transparent 2px 7px
+    );
+  }
+
+  &-space {
+    height: calc(t.$gutter * 2);
+    background: none;
+  }
+
+  &-ornament {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    .openui-mag-divider__line {
+      flex: 1;
+      height: 1px;
+      background: t.$rule;
+    }
+
+    .openui-mag-divider__glyph {
+      font-family: t.$font-display;
+      font-size: var(--openui-magazine-size-standfirst);
+      color: t.$accent-ink;
+      line-height: 1;
+    }
+  }
+}

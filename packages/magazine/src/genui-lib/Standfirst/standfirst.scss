@@ -1,0 +1,20 @@
+@use "../../styles/tokens" as t;
+
+.openui-mag-standfirst {
+  font-family: t.$font-body;
+  font-size: var(--openui-magazine-size-standfirst);
+  line-height: 1.55;
+  color: t.$ink-secondary;
+  margin: 0 0 t.$gutter;
+  max-width: 46ch;
+
+  &-center {
+    text-align: center;
+    margin-inline: auto;
+  }
+
+  &-right {
+    text-align: right;
+    margin-left: auto;
+  }
+}

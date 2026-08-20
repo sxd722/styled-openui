@@ -1,0 +1,7 @@
+node_modules/
+dist/
+demo/dist/
+*.log
+.DS_Store
+# reference clone of upstream openui (exploration only)
+/openui/

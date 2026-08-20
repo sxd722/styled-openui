@@ -1,0 +1,44 @@
+@use "../../styles/tokens" as t;
+
+.openui-mag-bleed-image {
+  @include t.bleed;
+  position: relative;
+  margin-block: t.$gutter;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &-short {
+    height: var(--openui-magazine-bleed-short);
+  }
+
+  &-medium {
+    height: var(--openui-magazine-bleed-medium);
+  }
+
+  &-tall {
+    height: var(--openui-magazine-bleed-tall);
+  }
+
+  &-mono img {
+    filter: grayscale(1) contrast(1.08);
+  }
+
+  &__overlay {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    padding: 56px 32px 24px;
+    background: linear-gradient(to top, rgba(15, 14, 12, 0.78), rgba(15, 14, 12, 0));
+    color: t.$white;
+    font-family: t.$font-display;
+    font-size: var(--openui-magazine-size-subtitle);
+    line-height: 1.35;
+    font-weight: 500;
+  }
+}

@@ -1,0 +1,13 @@
+@use "../../styles/tokens" as t;
+
+.openui-mag-byline {
+  @include t.label;
+  color: t.$ink-tertiary;
+  padding: 10px 0;
+  border-block: 1px solid t.$rule;
+  margin: 0 0 t.$gutter;
+
+  &__dot {
+    color: t.$rule-strong;
+  }
+}

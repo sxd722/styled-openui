@@ -1,0 +1,49 @@
+// SCSS conveniences over the CSS custom properties declared in
+// src/magazine-defaults.css. Components consume the runtime variables —
+// never hard-coded values — so runtime theming keeps working.
+
+// Palette
+$paper: var(--openui-magazine-paper);
+$white: var(--openui-magazine-white);
+$ink: var(--openui-magazine-ink);
+$ink-secondary: var(--openui-magazine-ink-secondary);
+$ink-tertiary: var(--openui-magazine-ink-tertiary);
+$rule: var(--openui-magazine-rule);
+$rule-strong: var(--openui-magazine-rule-strong);
+$rule-inverted: var(--openui-magazine-rule-inverted);
+$accent: var(--openui-magazine-accent);
+$accent-ink: var(--openui-magazine-accent-ink);
+
+// Fonts
+$font-display: var(--openui-magazine-font-display);
+$font-body: var(--openui-magazine-font-body);
+$font-caption: var(--openui-magazine-font-caption);
+
+// Scale
+$size-display: var(--openui-magazine-size-display);
+$size-title: var(--openui-magazine-size-title);
+$size-subtitle: var(--openui-magazine-size-subtitle);
+$size-standfirst: var(--openui-magazine-size-standfirst);
+$size-body: var(--openui-magazine-size-body);
+$size-small: var(--openui-magazine-size-small);
+$size-caption: var(--openui-magazine-size-caption);
+
+// Rhythm
+$column-gap: var(--openui-magazine-column-gap);
+$column-rule: var(--openui-magazine-column-rule);
+$gutter: var(--openui-magazine-gutter);
+
+// Small-caps label (kickers, bylines, folios, captions meta).
+@mixin label {
+  font-family: $font-caption;
+  font-size: $size-caption;
+  font-weight: 500;
+  letter-spacing: var(--openui-magazine-tracking-caps);
+  text-transform: uppercase;
+  line-height: var(--openui-magazine-leading-caption);
+}
+
+// Full-bleed helper — escapes the page padding when placed inside a Spread.
+@mixin bleed {
+  margin-inline: calc(var(--openui-magazine-page-pad-x) * -1);
+}

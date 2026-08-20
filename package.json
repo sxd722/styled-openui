@@ -1,0 +1,17 @@
+{
+  "name": "openui-style",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Multi-style OpenUI component libraries — one package per visual style.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm --filter \"./packages/*\" run build",
+    "test": "pnpm -r --filter \"./packages/*\" --filter \"./demo\" run test",
+    "typecheck": "pnpm -r run typecheck",
+    "demo": "pnpm --filter @openui-style/demo run dev"
+  },
+  "devDependencies": {
+    "sass": "^1.86.0"
+  }
+}

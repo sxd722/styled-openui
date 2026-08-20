@@ -1,0 +1,202 @@
+.demo-shell {
+  min-height: 100vh;
+  background: #eceae4;
+}
+
+.demo-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(236, 234, 228, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(20, 20, 20, 0.15);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.demo-nav__styles,
+.demo-nav__pages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+// The style selector row reads as a stronger, darker band.
+.demo-nav__styles .demo-nav__btn {
+  font-weight: 600;
+}
+
+.demo-nav__btn {
+  border: 1px solid rgba(20, 20, 20, 0.25);
+  background: transparent;
+  color: #141414;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+.demo-nav__btn--active {
+  background: #141414;
+  color: #fdfcf8;
+  border-color: #141414;
+}
+
+.demo-main {
+  padding: 32px 0 80px;
+}
+
+// Phone launcher mock for the 2x4 widgets.
+.demo-phone {
+  width: 380px;
+  margin: 0 auto;
+  border-radius: 44px;
+  border: 10px solid #141414;
+  background: linear-gradient(160deg, #2f3b46 0%, #1d252d 60%, #141a20 100%);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.demo-phone__screen {
+  border-radius: 34px;
+  overflow: hidden;
+  padding: 56px 20px 28px;
+
+  .openui-mag-spread {
+    max-width: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    columns: auto;
+
+    > * {
+      column-span: none;
+    }
+  }
+}
+
+// ── Paste & render playground ──
+.demo-playground {
+  display: grid;
+  grid-template-columns: minmax(360px, 44%) 1fr;
+  gap: 20px;
+  align-items: start;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 900px) {
+  .demo-playground {
+    grid-template-columns: 1fr;
+  }
+}
+
+.demo-playground__editor-pane {
+  position: sticky;
+  top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.demo-playground__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.demo-playground__title {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6e6a64;
+}
+
+.demo-playground__samples {
+  display: flex;
+  gap: 6px;
+}
+
+.demo-playground__sample-btn {
+  border: 1px solid rgba(20, 20, 20, 0.25);
+  background: transparent;
+  color: #141414;
+  font-size: 12px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.demo-playground__sample-btn:hover {
+  background: rgba(20, 20, 20, 0.06);
+}
+
+.demo-playground__textarea {
+  width: 100%;
+  min-height: 420px;
+  box-sizing: border-box;
+  resize: vertical;
+  border: 1px solid rgba(20, 20, 20, 0.25);
+  background: #fffefb;
+  color: #141414;
+  font-family: "SFMono-Regular", Consolas, "Courier New", monospace;
+  font-size: 12.5px;
+  line-height: 1.6;
+  padding: 14px;
+  outline: none;
+  tab-size: 2;
+}
+
+.demo-playground__textarea:focus {
+  border-color: #141414;
+}
+
+.demo-playground__errors {
+  list-style: none;
+  margin: 0;
+  padding: 10px 14px;
+  border-left: 3px solid #b3352c;
+  background: rgba(179, 53, 44, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.demo-playground__error {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.demo-playground__error-message {
+  font-size: 12.5px;
+  color: #8c2822;
+}
+
+.demo-playground__error-where {
+  font-size: 11px;
+  color: #6e6a64;
+  font-family: "SFMono-Regular", Consolas, monospace;
+}
+
+.demo-playground__ok {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-size: 12px;
+  color: #3d6b4a;
+}
+
+.demo-playground__render-pane {
+  min-height: 420px;
+  background: #fdfcf8;
+  border: 1px solid rgba(20, 20, 20, 0.15);
+}

@@ -1,0 +1,62 @@
+@use "../../styles/tokens" as t;
+
+.openui-mag-pullquote {
+  margin: 0 0 t.$gutter;
+
+  &__text {
+    font-family: t.$font-display;
+    font-size: var(--openui-magazine-size-subtitle);
+    line-height: 1.4;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  &__attribution {
+    @include t.label;
+    color: t.$ink-tertiary;
+    margin-top: 12px;
+  }
+
+  // Rules above and below — the classic magazine treatment. Spans all columns.
+  &-center {
+    text-align: center;
+    border-block: 1px solid t.$rule-strong;
+    padding: 24px 0;
+    margin-block: t.$gutter;
+
+    .openui-mag-pullquote__text {
+      max-width: 30ch;
+      margin-inline: auto;
+    }
+  }
+
+  // Accent bar — stays inside the column flow.
+  &-edge {
+    border-left: 2px solid t.$accent;
+    padding-left: t.$gutter;
+
+    .openui-mag-pullquote__text {
+      font-style: italic;
+      font-weight: 500;
+    }
+  }
+
+  // Giant quotation glyph.
+  &-marker {
+    padding: 8px 0 0 0;
+    position: relative;
+
+    .openui-mag-pullquote__mark {
+      display: block;
+      font-family: t.$font-display;
+      font-size: 88px;
+      line-height: 0.6;
+      color: t.$accent;
+      height: 0.45em;
+    }
+
+    .openui-mag-pullquote__text {
+      max-width: 34ch;
+    }
+  }
+}

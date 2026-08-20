@@ -1,0 +1,20 @@
+@use "../../styles/tokens" as t;
+
+.openui-mag-footnote {
+  font-family: t.$font-caption;
+  font-size: var(--openui-magazine-size-small);
+  line-height: var(--openui-magazine-leading-caption);
+  color: t.$ink-tertiary;
+  border-top: 1px solid t.$rule;
+  padding-top: 8px;
+  margin: t.$gutter 0;
+  display: flex;
+  gap: 6px;
+
+  &__marker {
+    font-family: t.$font-display;
+    font-size: var(--openui-magazine-size-caption);
+    color: t.$accent-ink;
+    line-height: 1.8;
+  }
+}

@@ -1,0 +1,12 @@
+# Multi-style monorepo: one OpenUI component library per package.
+packages:
+  - "packages/*"
+  - "!packages/_template"
+  - "demo"
+
+# pnpm v11 build-script approvals.
+# @openuidev/lang-core's postinstall sends installation telemetry — disabled.
+allowBuilds:
+  '@openuidev/lang-core': false
+  '@parcel/watcher': true
+  esbuild: true
